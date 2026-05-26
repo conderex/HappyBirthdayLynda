@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lynda · Mayo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f4ead5;
+    --paper: #ede0c4;
+    --paper-dark: #d9c8a3;
+    --terracotta: #b8593a;
+    --terracotta-deep: #8a3f29;
+    --sage: #7a8b6f;
+    --sage-deep: #4f5e48;
+    --wood: #6b4423;
+    --wood-light: #8b6239;
+    --ink: #3d2817;
+    --shadow: rgba(61, 40, 23, 0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ink);
+    background: var(--cream);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(184, 89, 58, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(122, 139, 111, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(107, 68, 35, 0.04) 0%, transparent 70%);
+    padding: 40px 20px 80px;
+    position: relative;
+  }
+
+  /* Paper grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.27 0 0 0 0 0.13 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInDown 1.2s ease-out;
+  }
+
+  .header .for {
+    font-family: 'Special Elite', monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--wood);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(56px, 10vw, 88px);
+    font-weight: 700;
+    color: var(--terracotta-deep);
+    line-height: 0.9;
+    transform: rotate(-2deg);
+    text-shadow: 2px 2px 0 rgba(184, 89, 58, 0.15);
+  }
+
+  .header .date {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--sage-deep);
+    margin-top: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* Cassette */
+  .cassette-wrapper {
+    perspective: 1000px;
+    margin: 0 auto 60px;
+    animation: fadeInUp 1.4s ease-out 0.3s both;
+  }
+
+  .cassette {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    aspect-ratio: 1.6 / 1;
+    background: linear-gradient(145deg, #c9764a 0%, #b8593a 50%, #9d4729 100%);
+    border-radius: 18px;
+    position: relative;
+    box-shadow:
+      0 30px 60px -20px var(--shadow),
+      0 18px 36px -18px rgba(0, 0, 0, 0.4),
+      inset 0 2px 0 rgba(255, 240, 220, 0.3),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .cassette:hover {
+    transform: rotateY(-3deg) rotateX(2deg);
+  }
+
+  /* Cassette top stripe */
+  .cassette::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 240, 220, 0.4), transparent);
+    border-radius: 2px;
+  }
+
+  /* Brand mark */
+  .cassette-brand {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    font-family: 'Special Elite', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(255, 240, 220, 0.7);
+  }
+
+  .cassette-side {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-family: 'Special Elite', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255, 240, 220, 0.7);
+  }
+
+  /* Label */
+  .label {
+    position: absolute;
+    top: 14%;
+    left: 6%;
+    right: 6%;
+    height: 38%;
+    background: var(--paper);
+    background-image:
+      linear-gradient(180deg, rgba(184, 89, 58, 0.08) 0%, transparent 30%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.78 0 0 0 0 0.65 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+    border-radius: 4px;
+    box-shadow:
+      inset 0 0 0 1px rgba(107, 68, 35, 0.2),
+      inset 0 2px 8px rgba(107, 68, 35, 0.1);
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .label-stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--sage) 0%, var(--sage) 33%, var(--terracotta) 33%, var(--terracotta) 66%, var(--wood-light) 66%, var(--wood-light) 100%);
+  }
+
+  .label-title {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(22px, 4.5vw, 32px);
+    font-weight: 700;
+    color: var(--terracotta-deep);
+    line-height: 1;
+    transform: rotate(-1deg);
+    margin-top: 4px;
+  }
+
+  .label-subtitle {
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(8px, 1.4vw, 10px);
+    letter-spacing: 2px;
+    color: var(--wood);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .label-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(8px, 1.3vw, 10px);
+    color: var(--wood);
+    letter-spacing: 1px;
+  }
+
+  .label-from {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 600;
+    color: var(--sage-deep);
+    transform: rotate(-2deg);
+  }
+
+  /* Reels */
+  .reels {
+    position: absolute;
+    bottom: 14%;
+    left: 0;
+    right: 0;
+    height: 32%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 12%;
+  }
+
+  .reel {
+    width: clamp(60px, 13vw, 90px);
+    height: clamp(60px, 13vw, 90px);
+    background: radial-gradient(circle at 50% 50%, #2a1810 0%, #1a0e08 60%, #0d0704 100%);
+    border-radius: 50%;
+    position: relative;
+    box-shadow:
+      inset 0 0 0 4px rgba(255, 240, 220, 0.1),
+      inset 0 0 20px rgba(0, 0, 0, 0.6),
+      0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: spin 8s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .cassette.playing .reel {
+    animation-play-state: running;
+  }
+
+  .reel::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, var(--paper-dark) 0%, var(--paper) 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .reel::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18%;
+    height: 18%;
+    background: radial-gradient(circle, #1a0e08 0%, #000 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  /* Spokes on reels */
+  .reel-spokes {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+  }
+
+  .reel-spokes::before,
+  .reel-spokes::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 240, 220, 0.15);
+    top: 50%;
+    left: 50%;
+  }
+
+  .reel-spokes::before {
+    width: 90%;
+    height: 2px;
+    transform: translate(-50%, -50%);
+  }
+
+  .reel-spokes::after {
+    width: 2px;
+    height: 90%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Tape connecting reels */
+  .tape {
+    position: absolute;
+    bottom: calc(14% + 50%);
+    left: 22%;
+    right: 22%;
+    height: 3px;
+    transform: translateY(50%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    z-index: 1;
+  }
+
+  /* Window with tape view */
+  .window {
+    position: absolute;
+    bottom: 12%;
+    left: 18%;
+    right: 18%;
+    height: 36%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.15) 100%);
+    border-radius: 8px;
+    pointer-events: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Bottom screws */
+  .screw {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #5a3818 0%, #2a1810 100%);
+    border-radius: 50%;
+    bottom: 5%;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .screw::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: linear-gradient(45deg, transparent 45%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.6) 55%, transparent 55%);
+    border-radius: 50%;
+  }
+
+  .screw.left { left: 4%; }
+  .screw.right { right: 4%; }
+
+  /* Play button hint */
+  .play-hint {
+    text-align: center;
+    margin-top: 24px;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--sage-deep);
+    transform: rotate(-1deg);
+    animation: bob 2.5s ease-in-out infinite;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .play-hint::before {
+    content: '↓ ';
+    color: var(--terracotta);
+  }
+
+  .cassette.playing ~ .play-hint::before {
+    content: '♪ ';
+  }
+
+  /* Letter / Note */
+  .note {
+    background: var(--paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.78 0 0 0 0 0.65 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+    padding: 50px 44px;
+    border-radius: 4px;
+    box-shadow:
+      0 20px 40px -20px var(--shadow),
+      0 10px 20px -10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transform: rotate(-0.8deg);
+    margin-bottom: 50px;
+    animation: fadeInUp 1.4s ease-out 0.6s both;
+  }
+
+  .note::before,
+  .note::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 22px;
+    background: rgba(184, 89, 58, 0.25);
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .note::before {
+    top: -10px;
+    left: 30px;
+    transform: rotate(-4deg);
+  }
+
+  .note::after {
+    top: -10px;
+    right: 30px;
+    transform: rotate(3deg);
+  }
+
+  .note-greeting {
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    color: var(--terracotta-deep);
+    margin-bottom: 20px;
+    transform: rotate(-1deg);
+  }
+
+  .note p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .note .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    color: var(--sage-deep);
+    text-align: right;
+    margin-top: 30px;
+    transform: rotate(-2deg);
+  }
+
+  /* Tracklist sections */
+  .tracklist {
+    margin-bottom: 50px;
+    animation: fadeInUp 1.4s ease-out 0.9s both;
+  }
+
+  .tracklist-intro {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--wood);
+    margin-bottom: 36px;
+    letter-spacing: 0.5px;
+  }
+
+  .side {
+    background: var(--paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.78 0 0 0 0 0.65 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p2)'/%3E%3C/svg%3E");
+    padding: 32px 36px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    box-shadow:
+      0 10px 30px -15px var(--shadow),
+      inset 0 0 0 1px rgba(107, 68, 35, 0.1);
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+
+  .side:hover {
+    transform: translateY(-2px);
+  }
+
+  .side:nth-child(2) { transform: rotate(0.4deg); }
+  .side:nth-child(3) { transform: rotate(-0.3deg); }
+  .side:nth-child(4) { transform: rotate(0.2deg); }
+
+  .side:nth-child(2):hover { transform: rotate(0.4deg) translateY(-2px); }
+  .side:nth-child(3):hover { transform: rotate(-0.3deg) translateY(-2px); }
+  .side:nth-child(4):hover { transform: rotate(0.2deg) translateY(-2px); }
+
+  .side-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px dashed rgba(107, 68, 35, 0.3);
+  }
+
+  .side-letter {
+    font-family: 'Special Elite', monospace;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    background: var(--cream);
+    padding: 4px 10px;
+    border: 1px solid var(--terracotta);
+    border-radius: 2px;
+  }
+
+  .side-title {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--sage-deep);
+    line-height: 1.2;
+    flex: 1;
+  }
+
+  .track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--ink);
+    border-bottom: 1px dotted rgba(107, 68, 35, 0.2);
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .track:hover {
+    padding-left: 8px;
+    background: rgba(184, 89, 58, 0.08);
+    border-radius: 4px;
+  }
+
+  .track:hover .track-name {
+    color: var(--terracotta-deep);
+  }
+
+  .track:hover .track-num {
+    color: var(--terracotta);
+  }
+
+  .track:hover::after {
+    content: '▶';
+    color: var(--terracotta);
+    font-size: 12px;
+    margin-left: 8px;
+  }
+
+  .track:last-child { border-bottom: none; }
+
+  .track-num {
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: var(--wood);
+    min-width: 28px;
+  }
+
+  .track-name {
+    font-style: italic;
+    color: var(--wood);
+    flex: 1;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    margin-top: 60px;
+    animation: fadeInUp 1.4s ease-out 1.2s both;
+  }
+
+  .cta-arrow {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    transform: rotate(-3deg);
+    display: inline-block;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 18px 44px;
+    background: var(--terracotta);
+    background-image: linear-gradient(135deg, #c9764a 0%, #b8593a 50%, #9d4729 100%);
+    color: var(--cream);
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow:
+      0 10px 30px -10px var(--terracotta-deep),
+      inset 0 1px 0 rgba(255, 240, 220, 0.3),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: rotate(-1deg);
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-button:hover {
+    transform: rotate(-1deg) translateY(-3px) scale(1.03);
+    box-shadow:
+      0 16px 40px -10px var(--terracotta-deep),
+      inset 0 1px 0 rgba(255, 240, 220, 0.4),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--wood);
+    opacity: 0.7;
+  }
+
+  .footer-stamp {
+    display: inline-block;
+    border: 2px dashed var(--wood);
+    padding: 8px 20px;
+    border-radius: 4px;
+    transform: rotate(-3deg);
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--wood);
+    text-transform: uppercase;
+  }
+
+  /* Decorative birds */
+  .bird {
+    position: absolute;
+    font-size: 24px;
+    color: var(--sage-deep);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .bird-1 { top: 100px; left: 5%; animation: float 6s ease-in-out infinite; }
+  .bird-2 { top: 300px; right: 6%; animation: float 7s ease-in-out infinite 1s; }
+
+  /* Animations */
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: rotate(-1deg) translateY(0); }
+    50% { transform: rotate(-1deg) translateY(-6px); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+  }
+
+  @media (max-width: 600px) {
+    .note { padding: 36px 24px; }
+    .note-greeting { font-size: 28px; }
+    .note p { font-size: 17px; }
+    .side { padding: 24px 20px; }
+    .side-title { font-size: 22px; }
+    .track { font-size: 15px; }
+    .header h1 { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Decorative birds -->
+  <div class="bird bird-1">𓅪</div>
+  <div class="bird bird-2">𓅫</div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="for">para mi querida amiga</div>
+    <h1>Lynda</h1>
+    <div class="date">~ 26 de mayo, 2026 ~</div>
+  </header>
+
+  <!-- Cassette -->
+  <div class="cassette-wrapper">
+    <div class="cassette" id="cassette" onclick="this.classList.toggle('playing')">
+      <div class="cassette-brand">SIDE A · 60 MIN</div>
+      <div class="cassette-side">FOLK · GOOD VIBES</div>
+
+      <div class="label">
+        <div class="label-stripe"></div>
+        <div>
+          <div class="label-title">For Lynda</div>
+          <div class="label-subtitle">A mixtape · Mayo '26</div>
+        </div>
+        <div class="label-meta">
+          <span>HX PRO</span>
+          <div class="label-from">— con cariño, Roge</div>
+        </div>
+      </div>
+
+      <div class="window"></div>
+      <div class="tape"></div>
+
+      <div class="reels">
+        <div class="reel"><div class="reel-spokes"></div></div>
+        <div class="reel"><div class="reel-spokes"></div></div>
+      </div>
+
+      <div class="screw left"></div>
+      <div class="screw right"></div>
+    </div>
+    <div class="play-hint" onclick="document.getElementById('cassette').classList.toggle('playing')">
+      tócalo para hacer girar las cintas
+    </div>
+  </div>
+
+  <!-- Note -->
+  <div class="note">
+    <div class="note-greeting">Hola Lynda!</div>
+    <p>
+      Te deseo muy muy feliz cumpleaños y que te encuentres 29 pesos en una chamarra que no usabas hace tiempo y también que todo lo que pidas por Uber llegue a tiempo y que nunca pierdas ni una sola tapita de una botella de agua, y si sí, que ya le quede poquito para que solo puedas acabártela.
+    </p>
+    <p>
+      Jaja, y buenas cosas bonitas y así. Aquí te dejo canciones que me han gustado mucho últimamente y tal vez te gusten :)
+    </p>
+    <p>
+      Abrazos!
+    </p>
+    <div class="signature">— Roge</div>
+  </div>
+
+  <!-- Tracklist -->
+  <div class="tracklist">
+
+    <div class="side">
+      <div class="side-header">
+        <div class="side-letter">Side A</div>
+        <div class="side-title">Working in the zone</div>
+      </div>
+      <a class="track" href="https://www.youtube.com/watch?v=1fWlPq411Uc" target="_blank" rel="noopener"><span class="track-num">01</span><span class="track-name">Just a Boy — DrINsaNE</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=ErZbQCWXbRQ" target="_blank" rel="noopener"><span class="track-num">02</span><span class="track-name">Sugar Boats — Modest Mouse</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=ArQk-mWKlX4" target="_blank" rel="noopener"><span class="track-num">03</span><span class="track-name">Wonderful Life — Milky Chance</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=xa4MOx6jixk" target="_blank" rel="noopener"><span class="track-num">04</span><span class="track-name">Tundra — Otyken</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=Dn5uxAyC0Zw" target="_blank" rel="noopener"><span class="track-num">05</span><span class="track-name">PALO $ANTO — Jessie Reyez</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=k2WcOdz96ko" target="_blank" rel="noopener"><span class="track-num">06</span><span class="track-name">Blood In The Cut — K.Flay</span></a>
+    </div>
+
+    <div class="side">
+      <div class="side-header">
+        <div class="side-letter">Side B</div>
+        <div class="side-title">Happy Songs</div>
+      </div>
+      <a class="track" href="https://www.youtube.com/watch?v=Sc40JX3wTaI" target="_blank" rel="noopener"><span class="track-num">01</span><span class="track-name">Back in Your Head — Tegan and Sara</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=Q6F1pRRRAWM" target="_blank" rel="noopener"><span class="track-num">02</span><span class="track-name">Lil Mama — Jain</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=8TTJGW7N00k" target="_blank" rel="noopener"><span class="track-num">03</span><span class="track-name">GOING CRAZY — Ktlyn</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=d6UODLcuFZI" target="_blank" rel="noopener"><span class="track-num">04</span><span class="track-name">Midnight — Logic</span></a>
+    </div>
+
+    <div class="side">
+      <div class="side-header">
+        <div class="side-letter">Side C</div>
+        <div class="side-title">Hay un semáforo muy largo y te acordaste de esta lista</div>
+      </div>
+      <a class="track" href="https://www.youtube.com/watch?v=ZTGpXwx1yzM" target="_blank" rel="noopener"><span class="track-num">01</span><span class="track-name">can't slow down — almost monday</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=PfFikc2S8AQ" target="_blank" rel="noopener"><span class="track-num">02</span><span class="track-name">holiday — almost monday</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=DiEwJTOderQ" target="_blank" rel="noopener"><span class="track-num">03</span><span class="track-name">Carried Away — Passion Pit</span></a>
+      <a class="track" href="https://www.youtube.com/watch?v=eY-7q42UZR0" target="_blank" rel="noopener"><span class="track-num">04</span><span class="track-name">Impossible Germany — Wilco</span></a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-stamp">Hecho con cariño · Mayo 2026</div>
+    <p style="margin-top: 16px;">Feliz cumple Lynda !!</p>
+  </div>
+
+</div>
+
+</body>
+</html>
