@@ -41,7 +41,6 @@
     position: relative;
   }
 
-  /* Paper grain texture */
   body::before {
     content: '';
     position: fixed;
@@ -61,7 +60,6 @@
     z-index: 2;
   }
 
-  /* Header */
   .header {
     text-align: center;
     margin-bottom: 50px;
@@ -96,7 +94,6 @@
     letter-spacing: 1px;
   }
 
-  /* Cassette */
   .cassette-wrapper {
     perspective: 1000px;
     margin: 0 auto 60px;
@@ -125,7 +122,6 @@
     transform: rotateY(-3deg) rotateX(2deg);
   }
 
-  /* Cassette top stripe */
   .cassette::before {
     content: '';
     position: absolute;
@@ -137,7 +133,6 @@
     border-radius: 2px;
   }
 
-  /* Brand mark */
   .cassette-brand {
     position: absolute;
     top: 16px;
@@ -158,7 +153,6 @@
     color: rgba(255, 240, 220, 0.7);
   }
 
-  /* Label */
   .label {
     position: absolute;
     top: 14%;
@@ -226,7 +220,6 @@
     transform: rotate(-2deg);
   }
 
-  /* Reels */
   .reels {
     position: absolute;
     bottom: 14%;
@@ -283,7 +276,6 @@
     z-index: 2;
   }
 
-  /* Spokes on reels */
   .reel-spokes {
     position: absolute;
     inset: 0;
@@ -311,7 +303,6 @@
     transform: translate(-50%, -50%);
   }
 
-  /* Tape connecting reels */
   .tape {
     position: absolute;
     bottom: calc(14% + 50%);
@@ -323,7 +314,6 @@
     z-index: 1;
   }
 
-  /* Window with tape view */
   .window {
     position: absolute;
     bottom: 12%;
@@ -336,7 +326,6 @@
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  /* Bottom screws */
   .screw {
     position: absolute;
     width: 8px;
@@ -358,7 +347,6 @@
   .screw.left { left: 4%; }
   .screw.right { right: 4%; }
 
-  /* Play button hint */
   .play-hint {
     text-align: center;
     margin-top: 24px;
@@ -380,7 +368,6 @@
     content: '♪ ';
   }
 
-  /* Letter / Note */
   .note {
     background: var(--paper);
     background-image:
@@ -444,7 +431,6 @@
     transform: rotate(-2deg);
   }
 
-  /* Tracklist sections */
   .tracklist {
     margin-bottom: 50px;
     animation: fadeInUp 1.4s ease-out 0.9s both;
@@ -526,6 +512,7 @@
     border-bottom: 1px dotted rgba(107, 68, 35, 0.2);
     text-decoration: none;
     transition: all 0.25s ease;
+    cursor: pointer;
   }
 
   .track:hover {
@@ -549,6 +536,29 @@
     margin-left: 8px;
   }
 
+  .track.active {
+    padding-left: 8px;
+    background: rgba(184, 89, 58, 0.12);
+    border-radius: 4px;
+  }
+
+  .track.active .track-num {
+    color: var(--terracotta);
+  }
+
+  .track.active .track-name {
+    color: var(--terracotta-deep);
+    font-weight: 500;
+  }
+
+  .track.active::after {
+    content: '♪';
+    color: var(--terracotta);
+    font-size: 14px;
+    margin-left: 8px;
+    animation: bob 1.5s ease-in-out infinite;
+  }
+
   .track:last-child { border-bottom: none; }
 
   .track-num {
@@ -564,7 +574,6 @@
     flex: 1;
   }
 
-  /* CTA */
   .cta {
     text-align: center;
     margin-top: 60px;
@@ -610,7 +619,6 @@
       inset 0 -2px 0 rgba(0, 0, 0, 0.15);
   }
 
-  /* Footer */
   .footer {
     text-align: center;
     margin-top: 80px;
@@ -633,7 +641,6 @@
     text-transform: uppercase;
   }
 
-  /* Decorative birds */
   .bird {
     position: absolute;
     font-size: 24px;
@@ -645,7 +652,6 @@
   .bird-1 { top: 100px; left: 5%; animation: float 6s ease-in-out infinite; }
   .bird-2 { top: 300px; right: 6%; animation: float 7s ease-in-out infinite 1s; }
 
-  /* Animations */
   @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -686,18 +692,15 @@
 
 <div class="container">
 
-  <!-- Decorative birds -->
   <div class="bird bird-1">𓅪</div>
   <div class="bird bird-2">𓅫</div>
 
-  <!-- Header -->
   <header class="header">
     <div class="for">para mi querida amiga</div>
     <h1>Lynda</h1>
     <div class="date">~ 26 de mayo, 2026 ~</div>
   </header>
 
-  <!-- Cassette -->
   <div class="cassette-wrapper">
     <div class="cassette" id="cassette">
       <div class="cassette-brand">SIDE A · 60 MIN</div>
@@ -731,7 +734,6 @@
     </div>
   </div>
 
-  <!-- Note -->
   <div class="note">
     <div class="note-greeting">Hola Lynda!</div>
     <p>
@@ -746,7 +748,6 @@
     <div class="signature">— Roge</div>
   </div>
 
-  <!-- Tracklist -->
   <div class="tracklist">
 
     <div class="side">
@@ -754,12 +755,12 @@
         <div class="side-letter">Side A</div>
         <div class="side-title">Working in the zone</div>
       </div>
-      <a class="track" href="https://www.youtube.com/watch?v=1fWlPq411Uc" target="_blank" rel="noopener"><span class="track-num">01</span><span class="track-name">Just a Boy — DrINsaNE</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=ErZbQCWXbRQ" target="_blank" rel="noopener"><span class="track-num">02</span><span class="track-name">Sugar Boats — Modest Mouse</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=ArQk-mWKlX4" target="_blank" rel="noopener"><span class="track-num">03</span><span class="track-name">Wonderful Life — Milky Chance</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=xa4MOx6jixk" target="_blank" rel="noopener"><span class="track-num">04</span><span class="track-name">Tundra — Otyken</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=Dn5uxAyC0Zw" target="_blank" rel="noopener"><span class="track-num">05</span><span class="track-name">PALO $ANTO — Jessie Reyez</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=k2WcOdz96ko" target="_blank" rel="noopener"><span class="track-num">06</span><span class="track-name">Blood In The Cut — K.Flay</span></a>
+      <a class="track" href="#" data-video="1fWlPq411Uc"><span class="track-num">01</span><span class="track-name">Just a Boy — DrINsaNE</span></a>
+      <a class="track" href="#" data-video="ErZbQCWXbRQ"><span class="track-num">02</span><span class="track-name">Sugar Boats — Modest Mouse</span></a>
+      <a class="track" href="#" data-video="ArQk-mWKlX4"><span class="track-num">03</span><span class="track-name">Wonderful Life — Milky Chance</span></a>
+      <a class="track" href="#" data-video="xa4MOx6jixk"><span class="track-num">04</span><span class="track-name">Tundra — Otyken</span></a>
+      <a class="track" href="#" data-video="Dn5uxAyC0Zw"><span class="track-num">05</span><span class="track-name">PALO $ANTO — Jessie Reyez</span></a>
+      <a class="track" href="#" data-video="k2WcOdz96ko"><span class="track-num">06</span><span class="track-name">Blood In The Cut — K.Flay</span></a>
     </div>
 
     <div class="side">
@@ -767,10 +768,10 @@
         <div class="side-letter">Side B</div>
         <div class="side-title">Happy Songs</div>
       </div>
-      <a class="track" href="https://www.youtube.com/watch?v=Sc40JX3wTaI" target="_blank" rel="noopener"><span class="track-num">01</span><span class="track-name">Back in Your Head — Tegan and Sara</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=Q6F1pRRRAWM" target="_blank" rel="noopener"><span class="track-num">02</span><span class="track-name">Lil Mama — Jain</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=8TTJGW7N00k" target="_blank" rel="noopener"><span class="track-num">03</span><span class="track-name">GOING CRAZY — Ktlyn</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=d6UODLcuFZI" target="_blank" rel="noopener"><span class="track-num">04</span><span class="track-name">Midnight — Logic</span></a>
+      <a class="track" href="#" data-video="Sc40JX3wTaI"><span class="track-num">01</span><span class="track-name">Back in Your Head — Tegan and Sara</span></a>
+      <a class="track" href="#" data-video="Q6F1pRRRAWM"><span class="track-num">02</span><span class="track-name">Lil Mama — Jain</span></a>
+      <a class="track" href="#" data-video="8TTJGW7N00k"><span class="track-num">03</span><span class="track-name">GOING CRAZY — Ktlyn</span></a>
+      <a class="track" href="#" data-video="d6UODLcuFZI"><span class="track-num">04</span><span class="track-name">Midnight — Logic</span></a>
     </div>
 
     <div class="side">
@@ -778,14 +779,13 @@
         <div class="side-letter">Side C</div>
         <div class="side-title">Hay un semáforo muy largo y te acordaste de esta lista</div>
       </div>
-      <a class="track" href="https://www.youtube.com/watch?v=ZTGpXwx1yzM" target="_blank" rel="noopener"><span class="track-num">01</span><span class="track-name">can't slow down — almost monday</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=PfFikc2S8AQ" target="_blank" rel="noopener"><span class="track-num">02</span><span class="track-name">holiday — almost monday</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=DiEwJTOderQ" target="_blank" rel="noopener"><span class="track-num">03</span><span class="track-name">Carried Away — Passion Pit</span></a>
-      <a class="track" href="https://www.youtube.com/watch?v=eY-7q42UZR0" target="_blank" rel="noopener"><span class="track-num">04</span><span class="track-name">Impossible Germany — Wilco</span></a>
+      <a class="track" href="#" data-video="ZTGpXwx1yzM"><span class="track-num">01</span><span class="track-name">can't slow down — almost monday</span></a>
+      <a class="track" href="#" data-video="PfFikc2S8AQ"><span class="track-num">02</span><span class="track-name">holiday — almost monday</span></a>
+      <a class="track" href="#" data-video="DiEwJTOderQ"><span class="track-num">03</span><span class="track-name">Carried Away — Passion Pit</span></a>
+      <a class="track" href="#" data-video="eY-7q42UZR0"><span class="track-num">04</span><span class="track-name">Impossible Germany — Wilco</span></a>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <div class="footer-stamp">Hecho con cariño · Mayo 2026</div>
     <p style="margin-top: 16px;">Feliz cumple Lynda !!</p>
@@ -803,6 +803,7 @@
   var player;
   var isPlaying = false;
   var cassette = document.getElementById('cassette');
+  var activeTrack = null;
 
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('yt-player', {
@@ -816,8 +817,45 @@
         fs: 0,
         modestbranding: 1,
         rel: 0
+      },
+      events: {
+        onStateChange: function(e) {
+          if (e.data === YT.PlayerState.ENDED) {
+            playNext();
+          }
+        }
       }
     });
+  }
+
+  function setActive(el) {
+    if (activeTrack) activeTrack.classList.remove('active');
+    activeTrack = el;
+    if (el) el.classList.add('active');
+  }
+
+  function playSong(videoId, trackEl) {
+    if (!player || !player.loadVideoById) return;
+    player.loadVideoById(videoId);
+    cassette.classList.add('playing');
+    isPlaying = true;
+    setActive(trackEl);
+  }
+
+  function playNext() {
+    if (!activeTrack) return;
+    var next = activeTrack.nextElementSibling;
+    if (!next || !next.classList.contains('track')) {
+      var nextSide = activeTrack.closest('.side').nextElementSibling;
+      if (nextSide) next = nextSide.querySelector('.track');
+    }
+    if (next && next.dataset.video) {
+      playSong(next.dataset.video, next);
+    } else {
+      cassette.classList.remove('playing');
+      isPlaying = false;
+      setActive(null);
+    }
   }
 
   function togglePlay() {
@@ -841,6 +879,19 @@
   document.querySelector('.play-hint').onclick = function() {
     togglePlay();
   };
+
+  document.querySelectorAll('.track').forEach(function(track) {
+    track.addEventListener('click', function(e) {
+      e.preventDefault();
+      var videoId = this.dataset.video;
+      if (!videoId) return;
+      if (activeTrack === this && isPlaying) {
+        togglePlay();
+      } else {
+        playSong(videoId, this);
+      }
+    });
+  });
 </script>
 
 </body>
