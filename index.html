@@ -118,6 +118,7 @@
       inset 0 -3px 0 rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
   }
 
   .cassette:hover {
@@ -698,7 +699,7 @@
 
   <!-- Cassette -->
   <div class="cassette-wrapper">
-    <div class="cassette" id="cassette" onclick="this.classList.toggle('playing')">
+    <div class="cassette" id="cassette">
       <div class="cassette-brand">SIDE A · 60 MIN</div>
       <div class="cassette-side">FOLK · GOOD VIBES</div>
 
@@ -725,7 +726,7 @@
       <div class="screw left"></div>
       <div class="screw right"></div>
     </div>
-    <div class="play-hint" onclick="document.getElementById('cassette').classList.toggle('playing')">
+    <div class="play-hint">
       tócalo para hacer girar las cintas
     </div>
   </div>
@@ -791,6 +792,56 @@
   </div>
 
 </div>
+
+<div id="yt-player" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"></div>
+
+<script>
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+
+  var player;
+  var isPlaying = false;
+  var cassette = document.getElementById('cassette');
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+      width: '1',
+      height: '1',
+      videoId: 'Q6F1pRRRAWM',
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        modestbranding: 1,
+        rel: 0
+      }
+    });
+  }
+
+  function togglePlay() {
+    if (!player || !player.getPlayerState) return;
+    var state = player.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+      player.pauseVideo();
+      cassette.classList.remove('playing');
+      isPlaying = false;
+    } else {
+      player.playVideo();
+      cassette.classList.add('playing');
+      isPlaying = true;
+    }
+  }
+
+  cassette.onclick = function() {
+    togglePlay();
+  };
+
+  document.querySelector('.play-hint').onclick = function() {
+    togglePlay();
+  };
+</script>
 
 </body>
 </html>
